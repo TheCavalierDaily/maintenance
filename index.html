@@ -1,0 +1,37 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      google.load("visualization", "1.1", {packages:["bar"]});
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Division', 'Min Salary', 'Avg Salary', 'Max Salary'],
+          ['Custodial', 23504, 26911, 76169],
+          ['Housekeeping', 12572, 29824, 55000],
+          ['Landscape', 24461, 32765, 80900],
+          ['Utilities', 26058, 39547, 82300],
+          ['Police', 27000, 40404, 107765],
+          ['Electric', 27500, 42483, 52780],
+          ['Library', 18678, 59264, 252200],
+          ['IT', 19191, 75784, 270000]
+        ]);
+
+        var options = {
+          chart: {
+            title: 'University Support Services',
+            subtitle: 'Minimum, average and maximum salaries for select support divisions',
+          },
+          bars: 'vertical' // Required for Material Bar Charts.
+        };
+
+        var chart = new google.charts.Bar(document.getElementById('barchart_material'));
+
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="barchart_material" style="width: 800px; height: 600px;"></div>
+  </body>
+</html>
